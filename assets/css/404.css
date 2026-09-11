@@ -1,0 +1,7 @@
+body {
+  font-family: Georgia;
+  background: #f4f0e8;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
