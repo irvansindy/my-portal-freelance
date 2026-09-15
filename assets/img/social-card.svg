@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Irvan Sindy, freelance web and mobile developer</title>
+  <desc id="desc">Kartu editorial krem, cokelat, dan deep teal dengan bentuk layar web, aplikasi mobile, serta fondasi produk.</desc>
+  <rect width="1200" height="630" fill="#f4f0e8"/>
+  <path d="M70 74h1060M70 556h1060" stroke="#b7ad9d"/>
+  <text x="70" y="130" fill="#1d1d1a" font-family="Arial, sans-serif" font-size="21" font-weight="600" letter-spacing="3">IRVAN SINDY / INDONESIA</text>
+  <text x="70" y="280" fill="#1d1d1a" font-family="Georgia, serif" font-size="102">Web developer.</text>
+  <text x="70" y="390" fill="#245c58" font-family="Georgia, serif" font-size="102" font-style="italic">Mobile developer.</text>
+  <text x="72" y="510" fill="#6f6b63" font-family="Arial, sans-serif" font-size="26">Freelance untuk produk bisnis dan operasional.</text>
+  <rect x="862" y="152" width="246" height="144" fill="#1d1d1a"/>
+  <text x="985" y="245" fill="#f4f0e8" font-family="Georgia, serif" font-size="54" text-anchor="middle">WEB</text>
+  <rect x="930" y="326" width="112" height="174" rx="24" fill="#245c58" stroke="#173e3c" stroke-width="4"/>
+  <rect x="963" y="344" width="46" height="5" rx="3" fill="#d7e4df"/>
+  <text x="986" y="430" fill="#f4f0e8" font-family="Georgia, serif" font-size="42" text-anchor="middle">APP</text>
+  <path d="M862 526h246" stroke="#245c58" stroke-width="2"/>
+  <text x="862" y="553" fill="#245c58" font-family="Arial, sans-serif" font-size="16" font-weight="600" letter-spacing="2">API / DATA / AUTH / DEPLOY</text>
+</svg>

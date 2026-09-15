@@ -1,0 +1,14 @@
+{
+  "name": "irvan-sindy-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Static portfolio for Irvan Sindy, freelance web and mobile developer.",
+  "scripts": {
+    "check": "node scripts/check-site.mjs",
+    "serve": "python3 -m http.server 4173",
+    "sitemap": "node scripts/generate-sitemap.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

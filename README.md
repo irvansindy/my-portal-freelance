@@ -1,31 +1,76 @@
-# Irvan Sindy — Cloudflare Pages Portfolio Hub
+# Portfolio Irvan Sindy
 
-Static personal portfolio prepared for Cloudflare Pages.
+Website statis untuk memperkenalkan Irvan Sindy sebagai freelance web dan mobile developer di Indonesia. Proyek ini dirancang untuk Cloudflare Pages dan tidak memerlukan framework atau proses build.
 
-## Routes
-- `/` — personal landing page
-- `/portfolio/restaurant-modern/`
-- `/portfolio/restaurant-editorial/`
-- `/portfolio/law-firm/`
-- `/portfolio/company-profile/`
-- `/portfolio/business-system/`
+## Mulai secara lokal
 
-Each portfolio folder currently contains a placeholder. Replace its `index.html` with the actual client/concept landing page while keeping the folder name to preserve the URL.
+Persyaratan:
 
-## Cloudflare Pages setup
+- Node.js versi aktif yang masih didukung
+- Python untuk server lokal, atau server statis lain
+
+Jalankan pemeriksaan repository:
+
+```sh
+npm run check
+```
+
+Jalankan server lokal:
+
+```sh
+npm run serve
+```
+
+Buka `http://localhost:4173`.
+
+## Rute
+
+- `/` untuk homepage
+- `/portfolio/restaurant-modern/` untuk studi konsep Modern × Classic Restaurant
+- `/portfolio/restaurant-editorial/` untuk studi konsep Contemporary Dining
+- `/portfolio/law-firm/` untuk studi konsep Law Firm Corporate
+- `/portfolio/company-profile/` untuk catatan pengalaman Company Profile & CMS
+- `/portfolio/business-system/` untuk catatan pengalaman Dashboard & Business Operations
+- `/404.html` untuk halaman tidak ditemukan
+
+## Struktur
+
+```text
+.
+├── index.html
+├── 404.html
+├── assets/
+│   ├── css/
+│   ├── img/
+│   └── js/
+├── portfolio/
+├── docs/
+├── scripts/
+├── DESIGN.md
+├── ROADMAP.md
+├── CHANGELOG.md
+├── AGENTS.md
+├── robots.txt
+└── _headers
+```
+
+## Dokumentasi utama
+
+- `DESIGN.md` menjelaskan arah visual dan alasan keputusan desain.
+- `docs/CONTENT.md` menjadi sumber kebenaran untuk identitas, kontak, layanan, dan batas klaim.
+- `docs/DEVELOPMENT.md` menjelaskan workflow perubahan, pengujian, SEO, dan deployment.
+- `ROADMAP.md` mencatat pekerjaan yang masih perlu dilakukan.
+- `CHANGELOG.md` mencatat perubahan yang sudah diterapkan.
+
+## Deployment Cloudflare Pages
+
 - Framework preset: None
-- Build command: leave empty
-- Build output directory: repository root
-- Production branch: main
+- Build command: kosong
+- Build output directory: root repository
+- Production branch: `main`
 
-Update `CONTACT_CONFIG` in `assets/js/main.js` before publishing.
+Domain produksi belum tercatat di repository. Setelah domain ditentukan, ikuti bagian SEO pada `docs/DEVELOPMENT.md` untuk memperbarui canonical URL, social image URL, dan sitemap.
 
-## File structure
-- `index.html` — homepage markup and content
-- `assets/css/style.css` — homepage styles
-- `assets/js/main.js` — contact configuration, contact links, copyright year, and FAQ behavior
-- `assets/css/portfolio.css` — shared styles for portfolio demo pages
-- `assets/css/404.css` — styles for the not-found page
-- `portfolio/*/index.html` — portfolio demo markup and content
+## Kontak
 
-Edit HTML for content, CSS for appearance, and JavaScript for behavior. No build step is required.
+Konfigurasi WhatsApp, email, dan pesan awal berada di `assets/js/main.js`. HTML tetap menyimpan URL kontak yang valid sebagai fallback ketika JavaScript tidak berjalan. Perbarui kedua tempat ketika data kontak berubah, lalu jalankan `npm run check`.

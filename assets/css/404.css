@@ -1,7 +1,48 @@
-body {
-  font-family: Georgia;
-  background: #f4f0e8;
+.not-found {
   display: grid;
-  place-items: center;
-  min-height: 100vh;
+  min-height: calc(100svh - 77px);
+  padding: clamp(4rem, 10vw, 8rem) 0;
+  align-items: center;
+}
+
+.not-found-layout {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(3rem, 9vw, 9rem);
+  align-items: end;
+}
+
+.error-code {
+  margin: 0;
+  color: var(--accent);
+  font-size: clamp(9rem, 25vw, 22rem);
+  letter-spacing: -0.07em;
+  line-height: 0.62;
+}
+
+.not-found h1 {
+  max-width: 720px;
+  margin: 1rem 0 1.5rem;
+  font-size: clamp(3.5rem, 7vw, 7rem);
+  letter-spacing: -0.045em;
+  line-height: 0.88;
+}
+
+.not-found div > p:not(.eyebrow) {
+  max-width: 38rem;
+  color: var(--muted);
+}
+
+.not-found .btn {
+  margin-top: 1rem;
+}
+
+@media (max-width: 700px) {
+  .not-found-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .error-code {
+    font-size: clamp(8rem, 45vw, 13rem);
+  }
 }

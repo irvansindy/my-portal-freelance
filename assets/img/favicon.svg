@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="IS">
+  <rect width="64" height="64" rx="12" fill="#173e3c"/>
+  <rect y="54" width="64" height="10" fill="#6f402d"/>
+  <text x="32" y="43" fill="#fffdf8" font-family="Georgia, serif" font-size="34" text-anchor="middle">IS</text>
+</svg>
