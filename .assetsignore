@@ -1,0 +1,10 @@
+*
+!index.html
+!404.html
+!_headers
+!robots.txt
+!sitemap.xml
+!assets/
+!assets/**
+!portfolio/
+!portfolio/**

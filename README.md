@@ -66,9 +66,9 @@ Buka `http://localhost:4173`.
 ## Deployment Cloudflare Workers
 
 - Framework: Static
-- Build command: `npm run build`
-- Deploy command: `npx wrangler deploy`
-- Assets directory: `./dist`
+- Build command: tidak diperlukan
+- Deploy command: dikelola otomatis oleh Cloudflare
+- Assets directory: root repository, dibatasi oleh `.assetsignore`
 - Production branch: `main`
 
 Domain produksi belum tercatat di repository. Setelah domain ditentukan, ikuti bagian SEO pada `docs/DEVELOPMENT.md` untuk memperbarui canonical URL, social image URL, dan sitemap.

@@ -108,12 +108,12 @@ Instrument Serif dan DM Sans dimuat dari Google Fonts dengan preconnect. Fallbac
 ## Deployment Cloudflare Workers
 
 - Framework: Static
-- Build command: `npm run build`
-- Deploy command: `npx wrangler deploy`
-- Assets directory: `./dist`
+- Build command: tidak diperlukan
+- Deploy command: dikelola otomatis oleh Cloudflare
+- Assets directory: root repository, dibatasi oleh `.assetsignore`
 - Production branch: `main`
 
-`scripts/build-static.mjs` menyalin hanya file publik ke `dist`; jangan arahkan `assets.directory` ke root repository. Langkah lengkap dan checklist produksi tersedia di `docs/DEPLOYMENT.md`. Setelah deployment, verifikasi response header pada domain produksi karena server lokal tidak menerapkan `_headers`.
+`.assetsignore` memastikan Wrangler hanya mengunggah file website dan tidak menyertakan `node_modules` atau dokumentasi repository. Langkah lengkap dan checklist produksi tersedia di `docs/DEPLOYMENT.md`. Setelah deployment, verifikasi response header pada domain produksi karena server lokal tidak menerapkan `_headers`.
 
 ## Version control
 

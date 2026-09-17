@@ -6,8 +6,8 @@ Perubahan penting pada proyek dicatat di file ini.
 
 ### Ditambahkan
 
-- Build statis yang menyalin hanya file publik ke `dist`.
-- Konfigurasi Wrangler untuk deployment Workers Static Assets dan halaman 404.
+- Daftar izin aset publik melalui `.assetsignore` agar Wrangler tidak mengunggah file repository atau dependensi.
+- Konfigurasi Wrangler untuk deployment Workers Static Assets langsung dari root repository dan halaman 404.
 - Aturan Git untuk mengabaikan output build, dependensi lokal, dan state Wrangler.
 
 ### Diubah

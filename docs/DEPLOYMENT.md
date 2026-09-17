@@ -1,6 +1,6 @@
 # Deployment ke Cloudflare Workers
 
-Panduan ini berlaku untuk repository `irvansindy/my-portal-freelance`. Situs memakai HTML, CSS, dan JavaScript standar. Cloudflare Workers Static Assets mengambil file publik dari direktori `dist`.
+Panduan ini berlaku untuk repository `irvansindy/my-portal-freelance`. Situs memakai HTML, CSS, dan JavaScript standar. Cloudflare Workers Static Assets membaca root repository, sedangkan `.assetsignore` membatasi upload pada file website.
 
 ## 1. Siapkan repository
 
@@ -9,7 +9,6 @@ Pastikan perubahan yang akan diterbitkan sudah berada di branch `main` dan tidak
 ```sh
 git status
 npm run check
-npm run build
 ```
 
 Jalankan situs secara lokal:
@@ -46,11 +45,10 @@ Gunakan konfigurasi berikut:
 | Project name | Nama yang tersedia, misalnya `irvan-sindy-portfolio` |
 | Production branch | `main` |
 | Framework preset | `Static` jika pilihan tersedia |
-| Build command | `npm run build` |
-| Deploy command | `npx wrangler deploy` |
+| Build command | Tidak diperlukan |
 | Root directory | Kosong, karena situs berada di root repository |
 
-`wrangler.jsonc` mengarahkan upload ke `dist`. Jangan mengganti `assets.directory` menjadi `.` karena direktori tersebut juga berisi source, dokumentasi, dan `node_modules`.
+Cloudflare menjalankan `npx wrangler deploy` secara otomatis. `wrangler.jsonc` membaca root repository dan `.assetsignore` memastikan hanya HTML, `_headers`, `robots.txt`, sitemap, serta direktori `assets` dan `portfolio` yang diunggah.
 
 Pilih **Save and Deploy**. Setelah proses selesai, buka URL `*.workers.dev` yang diberikan Cloudflare.
 
@@ -128,7 +126,7 @@ Setiap push berikutnya ke `main` akan memperbarui production deployment. Branch 
 
 ## 7. Jika deployment bermasalah
 
-Buka Worker di Cloudflare, pilih **Deployments**, lalu baca log deployment yang gagal. Periksa kembali nama branch, build command, dan `assets.directory` pada `wrangler.jsonc`.
+Buka Worker di Cloudflare, pilih **Deployments**, lalu baca log deployment yang gagal. Periksa kembali nama branch, `assets.directory` pada `wrangler.jsonc`, dan aturan `.assetsignore`.
 
 Jika perubahan terbaru merusak situs, pilih deployment terakhir yang sehat pada halaman **Deployments** dan gunakan opsi rollback. Setelah situs pulih, perbaiki sumber di repository dan push commit baru agar riwayat Git tetap menjadi sumber kebenaran.
 

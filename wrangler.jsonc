@@ -2,7 +2,7 @@
   "name": "my-portal-freelance",
   "compatibility_date": "2026-09-17",
   "assets": {
-    "directory": "./dist",
+    "directory": ".",
     "not_found_handling": "404-page"
   }
 }
