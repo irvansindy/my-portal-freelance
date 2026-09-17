@@ -59,6 +59,7 @@ Buka `http://localhost:4173`.
 - `DESIGN.md` menjelaskan arah visual dan alasan keputusan desain.
 - `docs/CONTENT.md` menjadi sumber kebenaran untuk identitas, kontak, layanan, dan batas klaim.
 - `docs/DEVELOPMENT.md` menjelaskan workflow perubahan, pengujian, SEO, dan deployment.
+- `docs/DEPLOYMENT.md` berisi langkah deployment Cloudflare Pages dari persiapan sampai verifikasi produksi.
 - `ROADMAP.md` mencatat pekerjaan yang masih perlu dilakukan.
 - `CHANGELOG.md` mencatat perubahan yang sudah diterapkan.
 
@@ -70,6 +71,8 @@ Buka `http://localhost:4173`.
 - Production branch: `main`
 
 Domain produksi belum tercatat di repository. Setelah domain ditentukan, ikuti bagian SEO pada `docs/DEVELOPMENT.md` untuk memperbarui canonical URL, social image URL, dan sitemap.
+
+Ikuti [panduan deployment](docs/DEPLOYMENT.md) untuk menghubungkan GitHub, mengatur domain, dan memeriksa hasil produksi.
 
 ## Kontak
 

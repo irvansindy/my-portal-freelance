@@ -109,10 +109,10 @@ Instrument Serif dan DM Sans dimuat dari Google Fonts dengan preconnect. Fallbac
 
 - Framework preset: None
 - Build command: kosong
-- Build output directory: root repository
+- Build output directory: `/` (root repository)
 - Production branch: `main`
 
-Setelah deployment, verifikasi response header pada domain produksi karena server lokal tidak menerapkan `_headers`.
+Langkah lengkap dan checklist produksi tersedia di `docs/DEPLOYMENT.md`. Setelah deployment, verifikasi response header pada domain produksi karena server lokal tidak menerapkan `_headers`.
 
 ## Version control
 

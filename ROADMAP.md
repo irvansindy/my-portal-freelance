@@ -23,6 +23,7 @@
 
 ## Setelah domain tersedia
 
+- Ikuti checklist produksi di `docs/DEPLOYMENT.md`.
 - Generate `sitemap.xml` dengan `npm run sitemap`.
 - Gunakan canonical serta social image URL absolut.
 - Tambahkan URL pada structured data.

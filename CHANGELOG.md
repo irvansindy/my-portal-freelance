@@ -2,6 +2,16 @@
 
 Perubahan penting pada proyek dicatat di file ini.
 
+## 2026-09-16
+
+### Ditambahkan
+
+- Panduan deployment Cloudflare Pages yang mencakup persiapan repository, Git integration, domain, metadata, verifikasi produksi, dan rollback.
+
+### Diubah
+
+- Konfigurasi deployment pada dokumentasi diselaraskan dengan branch produksi `main`.
+
 ## 2026-09-12
 
 ### Ditambahkan
