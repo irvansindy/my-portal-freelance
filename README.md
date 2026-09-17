@@ -1,6 +1,6 @@
 # Portfolio Irvan Sindy
 
-Website statis untuk memperkenalkan Irvan Sindy sebagai freelance web dan mobile developer di Indonesia. Proyek ini dirancang untuk Cloudflare Pages dan tidak memerlukan framework atau proses build.
+Website statis untuk memperkenalkan Irvan Sindy sebagai freelance web dan mobile developer di Indonesia. Proyek ini dirancang untuk Cloudflare Workers Static Assets dan tidak memerlukan framework.
 
 ## Mulai secara lokal
 
@@ -59,15 +59,16 @@ Buka `http://localhost:4173`.
 - `DESIGN.md` menjelaskan arah visual dan alasan keputusan desain.
 - `docs/CONTENT.md` menjadi sumber kebenaran untuk identitas, kontak, layanan, dan batas klaim.
 - `docs/DEVELOPMENT.md` menjelaskan workflow perubahan, pengujian, SEO, dan deployment.
-- `docs/DEPLOYMENT.md` berisi langkah deployment Cloudflare Pages dari persiapan sampai verifikasi produksi.
+- `docs/DEPLOYMENT.md` berisi langkah deployment Cloudflare Workers dari persiapan sampai verifikasi produksi.
 - `ROADMAP.md` mencatat pekerjaan yang masih perlu dilakukan.
 - `CHANGELOG.md` mencatat perubahan yang sudah diterapkan.
 
-## Deployment Cloudflare Pages
+## Deployment Cloudflare Workers
 
-- Framework preset: None
-- Build command: kosong
-- Build output directory: root repository
+- Framework: Static
+- Build command: `npm run build`
+- Deploy command: `npx wrangler deploy`
+- Assets directory: `./dist`
 - Production branch: `main`
 
 Domain produksi belum tercatat di repository. Setelah domain ditentukan, ikuti bagian SEO pada `docs/DEVELOPMENT.md` untuk memperbarui canonical URL, social image URL, dan sitemap.

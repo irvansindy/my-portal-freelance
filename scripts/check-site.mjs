@@ -27,7 +27,7 @@ async function collectFiles(directory) {
   const files = [];
 
   for (const entry of entries) {
-    if (entry.name === ".git" || entry.name === "node_modules") continue;
+    if ([".git", ".wrangler", "dist", "node_modules"].includes(entry.name)) continue;
     const absolute = path.join(directory, entry.name);
     if (entry.isDirectory()) files.push(...await collectFiles(absolute));
     else files.push(absolute);

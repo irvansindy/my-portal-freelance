@@ -1,6 +1,6 @@
-# Deployment ke Cloudflare Pages
+# Deployment ke Cloudflare Workers
 
-Panduan ini berlaku untuk repository `irvansindy/my-portal-freelance`. Situs memakai HTML, CSS, dan JavaScript standar tanpa proses build.
+Panduan ini berlaku untuk repository `irvansindy/my-portal-freelance`. Situs memakai HTML, CSS, dan JavaScript standar. Cloudflare Workers Static Assets mengambil file publik dari direktori `dist`.
 
 ## 1. Siapkan repository
 
@@ -9,6 +9,7 @@ Pastikan perubahan yang akan diterbitkan sudah berada di branch `main` dan tidak
 ```sh
 git status
 npm run check
+npm run build
 ```
 
 Jalankan situs secara lokal:
@@ -23,17 +24,17 @@ Jika hasilnya benar, commit dan push ke GitHub:
 
 ```sh
 git add <file-yang-disetujui>
-git commit -m "docs: add Cloudflare Pages deployment guide"
+git commit -m "chore: configure Cloudflare Workers deployment"
 git push origin main
 ```
 
 Tinjau daftar file sebelum menjalankan `git add`. Jangan memakai `git add .` bila working tree berisi perubahan lain.
 
-## 2. Hubungkan GitHub ke Cloudflare Pages
+## 2. Hubungkan GitHub ke Cloudflare Workers
 
 1. Masuk ke Cloudflare Dashboard.
 2. Buka **Workers & Pages**.
-3. Pilih **Create application**, lalu pilih **Pages** dan opsi untuk menghubungkan Git.
+3. Pilih **Create application**, lalu pilih **Import a repository**.
 4. Hubungkan akun GitHub jika belum pernah dihubungkan.
 5. Beri akses ke repository `irvansindy/my-portal-freelance`.
 6. Pilih repository tersebut dan mulai pengaturan proyek.
@@ -44,18 +45,18 @@ Gunakan konfigurasi berikut:
 | --- | --- |
 | Project name | Nama yang tersedia, misalnya `irvan-sindy-portfolio` |
 | Production branch | `main` |
-| Framework preset | `None` |
-| Build command | Kosong |
-| Build output directory | `/` |
+| Framework preset | `Static` jika pilihan tersedia |
+| Build command | `npm run build` |
+| Deploy command | `npx wrangler deploy` |
 | Root directory | Kosong, karena situs berada di root repository |
 
-Jika dashboard mewajibkan build command, isi `exit 0`. Situs tidak memerlukan environment variable untuk deployment awal.
+`wrangler.jsonc` mengarahkan upload ke `dist`. Jangan mengganti `assets.directory` menjadi `.` karena direktori tersebut juga berisi source, dokumentasi, dan `node_modules`.
 
-Pilih **Save and Deploy**. Setelah proses selesai, buka URL `*.pages.dev` yang diberikan Cloudflare.
+Pilih **Save and Deploy**. Setelah proses selesai, buka URL `*.workers.dev` yang diberikan Cloudflare.
 
 ## 3. Periksa deployment pertama
 
-Pada URL `*.pages.dev`, periksa:
+Pada URL `*.workers.dev`, periksa:
 
 - homepage dan seluruh halaman karya dapat dibuka;
 - URL yang tidak ada menampilkan halaman 404;
@@ -68,7 +69,7 @@ Pada URL `*.pages.dev`, periksa:
 Periksa header dari terminal dengan mengganti URL contoh:
 
 ```sh
-curl -I https://nama-proyek.pages.dev/
+curl -I https://nama-proyek.workers.dev/
 ```
 
 Respons produksi perlu memuat CSP dan header keamanan dari `_headers`, termasuk `Content-Security-Policy`, `Strict-Transport-Security`, dan `X-Content-Type-Options`.
@@ -77,13 +78,14 @@ Respons produksi perlu memuat CSP dan header keamanan dari `_headers`, termasuk 
 
 Lakukan bagian ini setelah domain produksi sudah ditentukan.
 
-1. Buka proyek di **Workers & Pages**.
-2. Buka **Custom domains**.
-3. Pilih **Set up a custom domain**.
-4. Masukkan domain utama yang ingin dipakai.
-5. Ikuti pemeriksaan DNS sampai status domain aktif dan sertifikat HTTPS tersedia.
+1. Pastikan domain sudah menjadi zone aktif di Cloudflare dan nameserver domain mengarah ke Cloudflare.
+2. Buka Worker di **Workers & Pages**.
+3. Buka **Settings**, lalu **Domains & Routes**.
+4. Pilih **Add**, lalu **Custom Domain**.
+5. Masukkan domain utama yang ingin dipakai.
+6. Ikuti pemeriksaan DNS sampai status domain aktif dan sertifikat HTTPS tersedia.
 
-Jika DNS domain dikelola Cloudflare, dashboard dapat membuat record yang diperlukan. Jika DNS berada di penyedia lain, tambahkan CNAME sesuai nilai yang ditampilkan Cloudflare. Tambahkan domain melalui menu **Custom domains** terlebih dahulu, bukan hanya dengan membuat CNAME secara manual.
+Workers Custom Domains memerlukan domain yang DNS-nya dikelola Cloudflare. Dashboard akan membuat record DNS dan sertifikat yang diperlukan setelah domain dikaitkan dengan Worker.
 
 Tentukan satu alamat utama, misalnya domain tanpa `www`, lalu arahkan varian lainnya ke alamat utama dengan Redirect Rules agar mesin pencari tidak melihat dua versi situs.
 
@@ -126,7 +128,7 @@ Setiap push berikutnya ke `main` akan memperbarui production deployment. Branch 
 
 ## 7. Jika deployment bermasalah
 
-Buka proyek Cloudflare Pages, pilih **Deployments**, lalu baca log deployment yang gagal. Periksa kembali nama branch, root directory, dan output directory.
+Buka Worker di Cloudflare, pilih **Deployments**, lalu baca log deployment yang gagal. Periksa kembali nama branch, build command, dan `assets.directory` pada `wrangler.jsonc`.
 
 Jika perubahan terbaru merusak situs, pilih deployment terakhir yang sehat pada halaman **Deployments** dan gunakan opsi rollback. Setelah situs pulih, perbaiki sumber di repository dan push commit baru agar riwayat Git tetap menjadi sumber kebenaran.
 

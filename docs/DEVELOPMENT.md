@@ -10,7 +10,7 @@ Proyek ini adalah website statis tanpa framework dan tanpa dependensi runtime.
 - `assets/css/portfolio.css` memuat sistem visual halaman karya.
 - `assets/css/404.css` hanya memuat komposisi halaman 404.
 - `assets/js/main.js` memuat konfigurasi kontak, menu mobile, tahun, dan perilaku FAQ.
-- `_headers` memuat header keamanan dan cache Cloudflare Pages.
+- `_headers` memuat header keamanan dan cache untuk Cloudflare Static Assets.
 
 ## Workflow perubahan
 
@@ -105,14 +105,15 @@ Jangan menyimpan domain contoh sebagai nilai produksi.
 
 Instrument Serif dan DM Sans dimuat dari Google Fonts dengan preconnect. Fallback Georgia dan Arial menjaga konten tetap terbaca saat layanan eksternal tidak tersedia. Bila privasi atau ketahanan jaringan menjadi prioritas, self-host file font dan perbarui CSP pada `_headers`.
 
-## Deployment Cloudflare Pages
+## Deployment Cloudflare Workers
 
-- Framework preset: None
-- Build command: kosong
-- Build output directory: `/` (root repository)
+- Framework: Static
+- Build command: `npm run build`
+- Deploy command: `npx wrangler deploy`
+- Assets directory: `./dist`
 - Production branch: `main`
 
-Langkah lengkap dan checklist produksi tersedia di `docs/DEPLOYMENT.md`. Setelah deployment, verifikasi response header pada domain produksi karena server lokal tidak menerapkan `_headers`.
+`scripts/build-static.mjs` menyalin hanya file publik ke `dist`; jangan arahkan `assets.directory` ke root repository. Langkah lengkap dan checklist produksi tersedia di `docs/DEPLOYMENT.md`. Setelah deployment, verifikasi response header pada domain produksi karena server lokal tidak menerapkan `_headers`.
 
 ## Version control
 

@@ -2,11 +2,23 @@
 
 Perubahan penting pada proyek dicatat di file ini.
 
+## 2026-09-17
+
+### Ditambahkan
+
+- Build statis yang menyalin hanya file publik ke `dist`.
+- Konfigurasi Wrangler untuk deployment Workers Static Assets dan halaman 404.
+- Aturan Git untuk mengabaikan output build, dependensi lokal, dan state Wrangler.
+
+### Diubah
+
+- Panduan deployment disesuaikan dengan alur Workers Builds yang digunakan Cloudflare.
+
 ## 2026-09-16
 
 ### Ditambahkan
 
-- Panduan deployment Cloudflare Pages yang mencakup persiapan repository, Git integration, domain, metadata, verifikasi produksi, dan rollback.
+- Panduan deployment Cloudflare yang mencakup persiapan repository, Git integration, domain, metadata, verifikasi produksi, dan rollback.
 
 ### Diubah
 

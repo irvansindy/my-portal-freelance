@@ -27,7 +27,7 @@
 - Generate `sitemap.xml` dengan `npm run sitemap`.
 - Gunakan canonical serta social image URL absolut.
 - Tambahkan URL pada structured data.
-- Verifikasi Cloudflare Pages headers pada production.
+- Verifikasi Cloudflare Workers Static Assets headers pada production.
 - Daftarkan sitemap pada alat webmaster yang dipilih pemilik.
 
 ## Peningkatan berikutnya
